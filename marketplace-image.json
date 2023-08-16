@@ -1,18 +1,18 @@
 {
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
-    "image_name": "lemp-20-04-snapshot-{{timestamp}}",
-    "apt_packages": "fail2ban mysql-server nginx php-apcu php-curl php-mysql php-fpm postfix python3-certbot-nginx software-properties-common",
-    "application_name": "LEMP",
-    "application_version": ""
+    "image_name": "freescout-22-04-snapshot-{{timestamp}}",
+    "apt_packages": "fail2ban mysql-server nginx php-apcu php-curl php-gd php-imap php-intl php-mbstring php-mysql php-fpm php-xml php-zip postfix python3-certbot-nginx software-properties-common",
+    "application_name": "Freescout",
+    "application_version": "1.8.90"
   },
   "sensitive-variables": ["do_token"],
   "builders": [
     {
       "type": "digitalocean",
       "api_token": "{{user `do_token`}}",
-      "image": "ubuntu-20-04-x64",
-      "region": "nyc3",
+      "image": "ubuntu-22-04-x64",
+      "region": "fra1",
       "size": "s-1vcpu-1gb",
       "ssh_username": "root",
       "snapshot_name": "{{user `image_name`}}"
